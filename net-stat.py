@@ -67,7 +67,8 @@ def print_hi():
             data[interface]['rxd'] = rx - data[interface]['rx']
             data[interface]['tx'] = tx
             data[interface]['rx'] = rx
-            print_data((interface, data[interface]['txd'], data[interface]['rxd'], data[interface]['tx'], data[interface]['rx']))
+            if data[interface]['txd'] or data[interface]['rxd'] or data[interface]['tx'] or data[interface]['rx']:
+                print_data((interface, data[interface]['txd'], data[interface]['rxd'], data[interface]['tx'], data[interface]['rx']))
         print('------\r', end='')
         time.sleep(0.5)
         print('      ')
