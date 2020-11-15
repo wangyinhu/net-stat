@@ -54,7 +54,7 @@ def print_hi():
     data = {}
     interfaces = [f for f in listdir(net_dir)]
     for interface in interfaces:
-        data.update({interface: dict()})
+        data[interface] = {}
         data[interface]['tx'] = get_tx(interface)
         data[interface]['rx'] = get_rx(interface)
     while True:
@@ -67,7 +67,7 @@ def print_hi():
             data[interface]['rxd'] = rx - data[interface]['rx']
             data[interface]['tx'] = tx
             data[interface]['rx'] = rx
-            if data[interface]['txd'] or data[interface]['rxd'] or data[interface]['tx'] or data[interface]['rx']:
+            if data[interface]['tx'] or data[interface]['rx']:
                 print_data((interface, data[interface]['txd'], data[interface]['rxd'], data[interface]['tx'], data[interface]['rx']))
         print('------\r', end='')
         time.sleep(0.5)
